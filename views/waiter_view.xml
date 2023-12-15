@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Waiter Action View -->
+    <record id="waiter_action" model="ir.actions.act_window">
+        <field name="name">Add Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">waiter.section</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Oder Yet!!!
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Waiter Tree View  -->
+    <record id="view_waiter_tree" model="ir.ui.view">
+        <field name="name">Waiter Tree View </field>
+        <field name="model">waiter.section</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_name_id" string="Customer" />
+                <field name="customer_Phone" string="Contact Number: "
+                    attrs="{'invisible': [('customer_name_id', '=', False)]}" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Waiter Form view -->
+    <record id="view_waiter_form" model="ir.ui.view">
+        <field name="name">Waiter Form View</field>
+        <field name="model">waiter.section</field>
+        <field name="arch" type="xml">
+            <form string="Test Model">
+                <sheet>
+                    <h1>
+                        Place Order 
+                    </h1>
+                    <group>
+                        <field name="customer_name_id" string="Select Customer: " />
+                        <field name="customer_Phone" string="Contact Number: "
+                            attrs="{'invisible': [('customer_name_id', '=', False)]}" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

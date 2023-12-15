@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Customer (To Delete Record) Wizard Form View -->
+    <record id="view_customer_wizard_form" model="ir.ui.view">
+        <field name="name">customer.wizard.form</field>
+        <field name="model">customer.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customer_name_id"></field>
+                    </group>
+                    <footer>
+                        <button name="deleteCustomerRecord" string="Confirm" type="object"
+                            class="oe_highlight" />
+                        <!-- <button name="deleteCustomerRecord" string="Cancel" type="object"
+                            class="oe_highlight" /> -->
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- Customer (To Delete Record) Wizard Action -->
+    <record id="customer_wizard_action" model="ir.actions.act_window">
+        <field name="name">Customer Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.wizard</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_customer_wizard_form"></field>
+        <!-- <field name="vie   w_type">form</field> -->
+    </record>
+</odoo>

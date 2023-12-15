@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+capple.access_customer_section,access_customer_section,capple.model_customer_section,base.group_user,1,1,1,1
+capple.access_waiter_section,access_waiter_section,capple.model_waiter_section,base.group_user,1,1,1,1
+
+
+capple.access_customer_wizard,access_customer_wizard,capple.model_customer_wizard,base.group_user,1,1,1,1
+
+

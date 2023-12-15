@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Customer Action View  -->
+    <record id="customer_action" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.section</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Empty List
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Customer Tree View -->
+    <record id="view_customer_tree" model="ir.ui.view">
+        <field name="name">Customer Tree View </field>
+        <field name="model">customer.section</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Providing String in fields will also be priorized as compare to the string
+                provided in python file for the same -->
+                <field name="rand_id" string="ID"></field>
+                <field name="customer_name" string="Name"></field>
+                <field name="customer_gender" string="Gender"></field>
+                <field name="customer_phoneNumber" string="Contact Number"></field>
+                <field name="customer_occation" string="Occation"></field>
+                <field name="customer_refference" string="Refference"></field>
+                <field name="time" string="Time"></field>
+                <field name="day" string="Day"></field>
+                <field name="date" string="Date"></field>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Customer Form view -->
+    <record id="view_customer_form" model="ir.ui.view">
+        <field name="name">Customer Form View</field>
+        <field name="model">customer.section</field>
+        <field name="arch" type="xml">
+            <form string="Test Model">
+                <sheet>
+                    <group>
+                        <field name="rand_id" string=""
+                            attrs="{'invisible': [('customer_name','=',False)]}"></field>
+                        <field name="customer_name"></field>
+                        <field name="customer_gender"></field>
+                    </group>
+                    <group>
+                        <field name="customer_phoneNumber"></field>
+                        <field name="customer_occation"></field>
+                        <field name="customer_refference"></field>
+                    </group>
+                    <notebook>
+                        <page name="Rrcord">
+                            <group>
+                                <field name="time"
+                                    attrs="{'invisible': [('customer_name','=',False)]}"></field>
+                                <field name="day"
+                                    attrs="{'invisible': [('customer_name','=',False)]}"></field>
+                                <field name="date"
+                                    attrs="{'invisible': [('customer_name','=',False)]}"></field>
+                                <button name="currentAll" string="Save" type="object"
+                                    class="oe_highlight" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+
+</odoo>
